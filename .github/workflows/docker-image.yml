@@ -22,8 +22,7 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-          permissions: write # Add this line to grant write permissions
-      
+
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
