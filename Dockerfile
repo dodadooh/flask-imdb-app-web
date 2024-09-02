@@ -4,14 +4,14 @@ FROM python:3.9-slim
 # Set the working directory in the container
 WORKDIR /app
 
-RUN apt-get update && apt-get install -y apt-utils
-
-# Install system dependencies
+# Install system dependencies with debug options
 RUN apt-get update && apt-get install -y \
+    apt-utils \
     python3-dev \
     libpq-dev \
     gcc \
-    --no-install-recommends && \
+    --no-install-recommends \
+    -o Dpkg::Options::="--force-confnew" && \
     dpkg --configure -a && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
