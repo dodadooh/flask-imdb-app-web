@@ -31,7 +31,6 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: ghcr.io/dodadooh/flask-imdb-app-web:latest
-          tags: ghcr.io/${{ github.repository }}/flask-imdb-app-web:latest
 
       - name: Log out from GitHub Container Registry
         run: docker logout ghcr.io
