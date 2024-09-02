@@ -10,17 +10,6 @@ Requirements
 Docker installed on your system (Docker Desktop, Docker Engine, or Docker on a compatible server).
 
 Project Structure
-
-flask-imdb-app/
-├── imdb_exports/    # Directory containing IMDb export CSV files
-│   ├── movie1.csv
-│   ├── movie2.csv
-│   └── ...
-├── app.py           # Flask application
-├── Dockerfile       # Dockerfile for building the Docker image
-├── requirements.txt # Python dependencies
-└── templates/       # Directory for HTML templates
-    └── index.html   # Frontend HTML file
     
 Setup Instructions
 Build the Docker Image
