@@ -1,15 +1,18 @@
 # Use a stable official Python runtime as a parent image
 FROM python:3.9-slim
 
+# Set environment variables to avoid interactive prompts
+ENV DEBIAN_FRONTEND=noninteractive
+
 # Set the working directory in the container
 WORKDIR /app
 
-# Install system dependencies
-RUN apt-get update && apt-get install -y \
+# Install system dependencies with retries to handle intermittent issues
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
     python3-dev \
     libpq-dev \
-    gcc \
-    --no-install-recommends && \
+    gcc && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
