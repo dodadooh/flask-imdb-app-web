@@ -1,18 +1,15 @@
-# Use an official Python runtime as a parent image
+# Use a stable official Python runtime as a parent image
 FROM python:3.9-slim
 
 # Set the working directory in the container
 WORKDIR /app
 
-# Install system dependencies with debug options
+# Install system dependencies
 RUN apt-get update && apt-get install -y \
-    apt-utils \
     python3-dev \
     libpq-dev \
     gcc \
-    --no-install-recommends \
-    -o Dpkg::Options::="--force-confnew" && \
-    dpkg --configure -a && \
+    --no-install-recommends && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
